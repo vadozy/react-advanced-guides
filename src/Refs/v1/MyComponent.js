@@ -10,7 +10,7 @@ class MyComponent extends React.Component {
   }
 
   render() {
-    return <div ref={this.myRef} >Test</div>;
+    return <div ref={this.myRef} ><h3>Test</h3></div>;
   }
 
 }

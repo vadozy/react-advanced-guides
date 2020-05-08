@@ -11,6 +11,6 @@ function BlogPost(props) {
 
 }
 
-export default withSubscription(BlogPost, (DataSource, props) => {
-  return DataSource.getBlogPost(props.id)
+export default withSubscription(BlogPost, (dataSource, props) => {
+  return dataSource.getBlogPost(props.id)
 });

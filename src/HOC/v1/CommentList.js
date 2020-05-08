@@ -1,27 +1,27 @@
 import React from 'react';
-import DataSource from '../DataSource';
+import dataSource from '../DataSource';
 
 class CommentList extends React.Component {
 
   state = {
-    // "DataSource" is some global data source
-    comments: DataSource.getComments()
+    // "dataSource" is some global data source singleton
+    comments: dataSource.getComments()
   }
 
   componentDidMount() {
     // Subscribe to changes
-    DataSource.addChangeListener(this.handleChange);
+    dataSource.addChangeListener(this.handleChange);
   }
 
   componentWillUnmount() {
     // Clean up listener
-    DataSource.removeChangeListener(this.handleChange);
+    dataSource.removeChangeListener(this.handleChange);
   }
 
   handleChange = _ => {
     // Update component state whenever the data source changes
     this.setState({
-      comments: DataSource.getComments()
+      comments: dataSource.getComments()
     });
   }
 

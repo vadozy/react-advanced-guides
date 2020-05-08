@@ -7,8 +7,8 @@ class ThemedButton extends React.Component {
   // In this example, the current theme is "dark".
   static contextType = ThemeContext;
   render() {
-    console.log('rendering ThemedButton');
-    return <Button theme={this.context} buttonNumber={this.props.buttonNumber} onClick={this.props.onClick}/>;
+    console.log('inside ThemedButton render');
+    return <Button theme={this.context.theme} buttonNumber={this.props.buttonNumber} onClick={this.context.changeTheme}/>;
   }
 }
 
@@ -21,7 +21,7 @@ const Button = props => {
     fontSize: '1.4em',
     textDecoration: 'underline',
   };
-  console.log('rendering Button');
+  console.log('inside Button render');
   return <div onClick={props.onClick}>I am a button {props.buttonNumber}, my theme is <span style={style}>{props.theme}</span></div>
 }
 

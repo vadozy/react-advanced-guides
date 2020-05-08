@@ -1,5 +1,5 @@
 import React from 'react';
-import DataSource from '../DataSource';
+import dataSource from '../DataSource';
 
 // This function takes a component...
 function withSubscription(WrappedComponent, selectData) {
@@ -7,22 +7,22 @@ function withSubscription(WrappedComponent, selectData) {
   return class extends React.Component {
 
     state = {
-      data: selectData(DataSource, this.props)
+      data: selectData(dataSource, this.props)
     }
 
     handleChange = _ => {
       this.setState({
-        data: selectData(DataSource, this.props)
+        data: selectData(dataSource, this.props)
       });
     }
 
     componentDidMount() {
       // ... that takes care of the subscription...
-      DataSource.addChangeListener(this.handleChange);
+      dataSource.addChangeListener(this.handleChange);
     }
 
     componentWillUnmount() {
-      DataSource.removeChangeListener(this.handleChange);
+      dataSource.removeChangeListener(this.handleChange);
     }
 
     render() {

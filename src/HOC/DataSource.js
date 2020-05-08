@@ -20,9 +20,16 @@ class DataSource {
 
   updateData = () => {
     const today = new Date();
-    const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+    const hours = ('0' + today.getHours()).slice(-2);
+    const minutes = ('0' + today.getMinutes()).slice(-2);
+    const seconds = ('0' + today.getSeconds()).slice(-2);
+
+    const time = hours + ":" + minutes + ":" + seconds;
     this.comments[1].text = `Time: ${time}`;
-    this.blogPost = `Blog post at: ${time}`;
+
+    this.blogPost = `Blog post at: ${today.toLocaleTimeString()}`;
+    
     this.changeListeners.forEach(listener => listener());
   }
 
@@ -31,7 +38,7 @@ class DataSource {
   }
 
   getBlogPost(id) {
-    return this.blogPost + ` ${id}`;
+    return this.blogPost + ` [id = ${id}]`;
   }
 
   addChangeListener(listener) {

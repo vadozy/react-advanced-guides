@@ -15,4 +15,4 @@ function CommentList(props) {
 
 const Comment = props => <div>{props.comment}</div>;
 
-export default withSubscription(CommentList, DataSource => DataSource.getComments());
+export default withSubscription(CommentList, dataSource => dataSource.getComments());

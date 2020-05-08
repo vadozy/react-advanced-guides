@@ -1,10 +1,14 @@
 import React from 'react';
+import cat from '../cat.png';
+
+const OFFSET_X = 10;
+const OFFSET_Y = 15;
 
 class Cat extends React.Component {
   render() {
-    const mouse = this.props.mouse;
+    const {x, y} = this.props.mouse;
     return (
-      <img src="/cat.jpg" alt="cat" style={{ position: 'absolute', left: mouse.x - 8, top: mouse.y - 8 }} />
+      <img src={cat} alt="cat" style={{ position: 'absolute', width: '20px', left: x - OFFSET_X, top: y - OFFSET_Y }} />
     );
   }
 }
@@ -13,7 +17,7 @@ class MouseWithCat extends React.Component {
   constructor(props) {
     super(props);
     this.handleMouseMove = this.handleMouseMove.bind(this);
-    this.state = { x: 0, y: 0 };
+    this.state = { x: OFFSET_X, y: OFFSET_Y };
   }
 
   handleMouseMove(event) {
@@ -25,7 +29,7 @@ class MouseWithCat extends React.Component {
 
   render() {
     return (
-      <div style={{ height: '100%' }} onMouseMove={this.handleMouseMove}>
+      <div style={{ height: '100vh' }} onMouseMove={this.handleMouseMove}>
 
         {/*
           We could just swap out the <p> for a <Cat> here ... but then
@@ -33,6 +37,7 @@ class MouseWithCat extends React.Component {
           component every time we need to use it, so <MouseWithCat>
           isn't really reusable yet.
         */}
+        <p>The current mouse position is ({this.state.x}, {this.state.y})</p>
         <Cat mouse={this.state} />
       </div>
     );

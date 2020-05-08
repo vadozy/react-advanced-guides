@@ -17,7 +17,7 @@ class Mouse extends React.Component {
 
   render() {
     return (
-      <div style={{ height: '100%' }} onMouseMove={this.handleMouseMove}>
+      <div style={{ height: '100vh' }} onMouseMove={this.handleMouseMove}>
 
         {/* ...but how do we render something other than a <p>? */}
         <p>The current mouse position is ({this.state.x}, {this.state.y})</p>
