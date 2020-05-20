@@ -15,8 +15,8 @@ import './index.css';
 
 // import App from './Refs/v3/AutoFocusTextInput';
 // import App from './RefsForwarding/App';
-import App from './ErrorBoundary/App';
+// import App from './ErrorBoundary/App';
 
-// import App from './Hooks/Hook03';
+import App from './Hooks/Hook03';
 
 ReactDOM.render(<App />, document.getElementById('root'));

@@ -20,7 +20,7 @@ class ChatAPI {
   subscribeToFriendStatus(id, statusChange) {
     console.log(`somebody subscribed for id: ${id}`);
     if (!this._friendsStatus.has(id)) {
-      this._friendsStatus.set(id, false);
+      this._friendsStatus.set(id, null);
       this._listeners.set(id, []);
     }
     this._listeners.get(id).push(statusChange);
