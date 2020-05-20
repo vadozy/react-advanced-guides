@@ -2,7 +2,7 @@ import React from 'react';
 import ThemeContext, { initialContext } from './ThemeContext';
 import ThemedButton from './ThemedButton';
 
-class App extends React.Component {
+export default class App extends React.Component {
 
   constructor(props) {
     super(props);
@@ -48,5 +48,3 @@ function Toolbar(props) {
   </React.Fragment>
   );
 }
-
-export default App;

@@ -1,34 +1,31 @@
 class DataSource {
 
-  blogPost = "Some Blog Post"
+  blogPost = `Blog post [ ${new Date().toLocaleString()} ]`;
 
-  comments = [
-    {
-      id: 1,
-      text: "Comment 01",
-    }, {
-      id: 2,
-      text: "Comment 02",
-    },
-  ]
+  id = 0;
+
+  comments = [];
 
   changeListeners = []
 
   constructor() {
-    setInterval(this.updateData, 1000);
+    setInterval(this._updateComments, 20000);
+    setInterval(this._updateBlogPost, 13000);
+    setTimeout(this._updateComments, 3000);
   }
 
-  updateData = () => {
-    const today = new Date();
+  _updateBlogPost = () => {
+    this.blogPost = `UPDATED Blog post [ ${new Date().toLocaleString()} ]`;
+    this.changeListeners.forEach(listener => listener());
+  }
 
-    const hours = ('0' + today.getHours()).slice(-2);
-    const minutes = ('0' + today.getMinutes()).slice(-2);
-    const seconds = ('0' + today.getSeconds()).slice(-2);
-
-    const time = hours + ":" + minutes + ":" + seconds;
-    this.comments[1].text = `Time: ${time}`;
-
-    this.blogPost = `Blog post at: ${today.toLocaleTimeString()}`;
+  _updateComments = () => {
+    this.comments.push(
+      {
+        id: ++this.id,
+        text: `Comment ${('0' + this.id).slice(-2)} [ ${new Date().toLocaleTimeString()} ]`,
+      },
+    );
     
     this.changeListeners.forEach(listener => listener());
   }

@@ -44,7 +44,7 @@ class MouseWithCat extends React.Component {
   }
 }
 
-class MouseTracker extends React.Component {
+export default class MouseTracker extends React.Component {
   render() {
     return (
       <div>
@@ -54,5 +54,3 @@ class MouseTracker extends React.Component {
     );
   }
 }
-
-export default MouseTracker;

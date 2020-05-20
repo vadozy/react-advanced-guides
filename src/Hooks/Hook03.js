@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import ChatAPI from "./ChatAPI";
 
+// Old way
 class FriendStatus extends React.Component {
   constructor(props) {
     super(props);
     this.state = { isOnline: null };
-    this.handleStatusChange = this.handleStatusChange.bind(this);
   }
 
   componentDidMount() {
@@ -22,7 +22,7 @@ class FriendStatus extends React.Component {
     );
   }
 
-  handleStatusChange(status) {
+  handleStatusChange = status => {
     this.setState({
       isOnline: status.isOnline
     });
@@ -35,11 +35,9 @@ class FriendStatus extends React.Component {
     return this.state.isOnline ? "Online" : "Offline";
   }
 
-  static defaultProps = {
-    friend: { id: 42 }
-  };
 }
 
+// New way
 function FriendStatusHooks(props) {
   const [isOnline, setIsOnline] = useState(null);
   useEffect(() => {
@@ -57,7 +55,31 @@ function FriendStatusHooks(props) {
   return isOnline ? "Online" : "Offline";
 }
 
+// New way with custom hook
+function useFriendStatus(friendId) {
+  const [isOnline, setIsOnline] = useState(null);
+  useEffect(() => {
+    const handleStatusChange = status => setIsOnline(status.isOnline);
+    ChatAPI.subscribeToFriendStatus(friendId, handleStatusChange);
+
+    // Specify how to clean up after this effect:
+    return () =>
+      ChatAPI.unsubscribeFromFriendStatus(friendId, handleStatusChange);
+  }, [friendId]);
+  return isOnline;
+}
+
+function FriendStatusCustomHook(props) {
+  const isOnline = useFriendStatus(props.friend.id);
+
+  if (isOnline === null) {
+    return "Loading...";
+  }
+  return isOnline ? "Online" : "Offline";
+}
+
 export default function(props) {
+  const changingId = useChangingId();
   return (
     <>
       <div>
@@ -70,8 +92,16 @@ export default function(props) {
         <FriendStatusHooks friend={{ id: 123 }} />
       </div>
       <div>
-        <FriendStatusHooks friend={{ id: 124 }} />
+        <FriendStatusCustomHook friend={{ id: changingId }} />
       </div>
     </>
   );
+}
+
+function useChangingId() {
+  const [id, setId] = useState(1);
+  useEffect(() => {
+    setTimeout(() => setId(id + 1), 5000);
+  });
+  return id;
 }

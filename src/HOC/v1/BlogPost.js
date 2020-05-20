@@ -1,7 +1,7 @@
 import React from 'react';
 import dataSource from '../DataSource';
 
-class BlogPost extends React.Component {
+class BlogPost extends React.PureComponent {
 
   state = {
     blogPost: dataSource.getBlogPost(this.props.id)
@@ -25,6 +25,7 @@ class BlogPost extends React.Component {
   }
 
   render() {
+    console.log('BlogPost.render()');
     return (
       <div>
         {this.state.blogPost}

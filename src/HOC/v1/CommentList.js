@@ -26,6 +26,7 @@ class CommentList extends React.Component {
   }
 
   render() {
+    console.log('CommentList.render()');
     return (
       <div>
         {this.state.comments.map((comment) => (
