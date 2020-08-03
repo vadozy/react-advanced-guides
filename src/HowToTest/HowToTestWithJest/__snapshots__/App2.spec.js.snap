@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshot renders using act() 1`] = `
+<div>
+  <h1>
+    My Counter
+  </h1>
+  <div>
+    <p>
+      0
+    </p>
+  </div>
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    Increment
+  </button>
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    Decrement
+  </button>
+  <h2>
+    My Async Data
+  </h2>
+  <ul>
+    <li>
+      Relicensing React, Jest, Flow, and Immutable.js
+    </li>
+    <li>
+      Build Your Own React
+    </li>
+    <li>
+      React Native is now open source
+    </li>
+    <li>
+      Explaining React's license
+    </li>
+    <li>
+      React 16
+    </li>
+    <li>
+      React Native for Android
+    </li>
+    <li>
+      Facebook Announces React Fiber, a Rewrite of Its React Framework
+    </li>
+    <li>
+      Painting with Code: Introducing our new open source library React Sketch.app
+    </li>
+    <li>
+      Create React Apps with No Configuration
+    </li>
+    <li>
+      Radical hydrogen-boron reactor leapfrogs current nuclear fusion tech?
+    </li>
+    <li>
+      Add Reactions to Pull Requests, Issues, and Comments
+    </li>
+    <li>
+      Vue.js vs. React
+    </li>
+    <li>
+      React Native for Windows and Mac
+    </li>
+    <li>
+      React v15.0
+    </li>
+    <li>
+      Free React.js Fundamentals Course
+    </li>
+    <li>
+      Building all of our new mobile apps using React Native
+    </li>
+    <li>
+      Svelte 3: Rethinking Reactivity
+    </li>
+    <li>
+      React Native for OS X
+    </li>
+    <li>
+      Removing User Interface Complexity, or Why React is Awesome
+    </li>
+    <li>
+      Simple React Patterns
+    </li>
+  </ul>
+</div>
+`;

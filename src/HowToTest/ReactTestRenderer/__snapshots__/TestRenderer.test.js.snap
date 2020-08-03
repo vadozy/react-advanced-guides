@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testRenderer.toJSON() snapshot 1`] = `
+<a
+  href="https://www.facebook.com/"
+>
+  Facebook
+</a>
+`;
