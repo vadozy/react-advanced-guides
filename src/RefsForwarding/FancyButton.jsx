@@ -12,13 +12,12 @@ import './main.css';
 //   );
 // }
 
-
 // Added Forwarding Ref
 // Function Component
 //
 function FancyButton(props) {
   return (
-    <button ref={props.innerRef} className="fancy-button">
+    <button ref={props.innerRef} className='fancy-button'>
       {props.children} !!!
     </button>
   );
@@ -38,4 +37,8 @@ function FancyButton(props) {
 // };
 
 // export default FancyButton;
-export default React.forwardRef((props, ref) => <FancyButton innerRef={ref} {...props} />);
+function ForwardingFunction(props, ref) {
+  return <FancyButton innerRef={ref} {...props} />;
+}
+
+export default React.forwardRef(ForwardingFunction);

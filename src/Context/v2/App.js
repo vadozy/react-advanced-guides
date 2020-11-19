@@ -1,9 +1,9 @@
 import React from 'react';
 import ThemeContext, { initialContext } from './ThemeContext';
 import ThemedButton from './ThemedButton';
+import ThemedButtonWithHooks from './ThemedButtonWithHooks';
 
 export default class App extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -15,8 +15,8 @@ export default class App extends React.Component {
   handleClick = () => {
     this.setState(prevState => {
       return {
-        theme: prevState.theme === 'blue' ? 'red' : 'blue'
-      }
+        theme: prevState.theme === 'blue' ? 'red' : 'blue',
+      };
     });
   };
 
@@ -27,7 +27,7 @@ export default class App extends React.Component {
     console.log('inside App render');
     return (
       <ThemeContext.Provider value={this.state}>
-        <Toolbar/>
+        <Toolbar />
       </ThemeContext.Provider>
     );
   }
@@ -40,11 +40,14 @@ function Toolbar(props) {
   return (
     <React.Fragment>
       <div>
-        <ThemedButton buttonNumber="1"/>
+        <ThemedButton buttonNumber='1' />
       </div>
       <div>
-        <ThemedButton buttonNumber="2"/>
-    </div>
-  </React.Fragment>
+        <ThemedButton buttonNumber='2' />
+      </div>
+      <div>
+        <ThemedButtonWithHooks buttonNumber='3' />
+      </div>
+    </React.Fragment>
   );
 }

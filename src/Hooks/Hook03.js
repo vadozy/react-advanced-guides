@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import ChatAPI from "./ChatAPI";
+import React, { useState, useEffect } from 'react';
+import ChatAPI from './ChatAPI';
 
 // Old way
 class FriendStatus extends React.Component {
@@ -24,17 +24,16 @@ class FriendStatus extends React.Component {
 
   handleStatusChange = status => {
     this.setState({
-      isOnline: status.isOnline
+      isOnline: status.isOnline,
     });
-  }
+  };
 
   render() {
     if (this.state.isOnline === null) {
-      return "Loading...";
+      return 'Loading...';
     }
-    return this.state.isOnline ? "Online" : "Offline";
+    return this.state.isOnline ? 'Online' : 'Offline';
   }
-
 }
 
 // New way
@@ -50,9 +49,9 @@ function FriendStatusHooks(props) {
   }, [props.friend.id]);
 
   if (isOnline === null) {
-    return "Loading...";
+    return 'Loading...';
   }
-  return isOnline ? "Online" : "Offline";
+  return isOnline ? 'Online' : 'Offline';
 }
 
 // New way with custom hook
@@ -73,12 +72,12 @@ function FriendStatusCustomHook(props) {
   const isOnline = useFriendStatus(props.friend.id);
 
   if (isOnline === null) {
-    return "Loading...";
+    return 'Loading...';
   }
-  return isOnline ? "Online" : "Offline";
+  return isOnline ? 'Online' : 'Offline';
 }
 
-export default function(props) {
+export default function App(props) {
   const changingId = useChangingId();
   return (
     <>
@@ -101,7 +100,7 @@ export default function(props) {
 function useChangingId() {
   const [id, setId] = useState(1);
   useEffect(() => {
-    setTimeout(() => setId(id + 1), 5000);
+    setTimeout(() => setId(id => id + 1), 5700);
   });
   return id;
 }

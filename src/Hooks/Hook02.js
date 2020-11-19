@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 function Example() {
+  console.log('Entering Example ...');
   const [count, setCount] = useState(0);
+  console.log(`Entering Example [ count: ${count} ]`);
 
   // Similar to componentDidMount and componentDidUpdate:
   useEffect(() => {
