@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ChatAPI from './ChatAPI';
+import ChatAPI from 'Hooks/ChatAPI.js';
 
 // Old way
 class FriendStatus extends React.Component {
