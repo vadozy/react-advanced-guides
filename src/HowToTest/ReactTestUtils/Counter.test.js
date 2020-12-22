@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { act } from 'react-dom/test-utils';
-import Counter from './Counter';
+// import Counter from './Counter';
+import Counter from './Counter2';
 
 let container;
 
@@ -31,7 +32,7 @@ it('can render and update a counter', () => {
 
   // Test second render and componentDidUpdate
   act(() => {
-    button.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+    button.dispatchEvent(new MouseEvent('click', { bubbles: true }));
   });
   expect(label.textContent).toBe('You clicked 1 times');
   expect(document.title).toBe('You clicked 1 times');

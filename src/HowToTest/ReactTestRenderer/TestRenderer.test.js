@@ -6,10 +6,10 @@ function Link(props) {
 }
 
 const testRenderer = TestRenderer.create(
-  <Link page="https://www.facebook.com/">Facebook</Link>
+  <Link page='https://www.facebook.com/'>Facebook</Link>
 );
 
-test("testRenderer.toJSON()", () => {
+test('testRenderer.toJSON()', () => {
   console.log(testRenderer.toJSON());
   // { type: 'a',
   //   props: { href: 'https://www.facebook.com/' },
@@ -17,6 +17,6 @@ test("testRenderer.toJSON()", () => {
   expect(true).toBe(true);
 });
 
-test("testRenderer.toJSON() snapshot", () => {
+test('testRenderer.toJSON() snapshot', () => {
   expect(testRenderer.toJSON()).toMatchSnapshot();
 });
