@@ -4,6 +4,7 @@ import './index.css';
 
 // import App from './App';
 // import App from './Context/v2/App';
+// import App from './RenderProps/v0/App';
 // import App from './RenderProps/v3/App2';
 
 // import BlogPost from './HOC/v2/BlogPost';
@@ -27,6 +28,14 @@ import './index.css';
 //import App from './HowToTest/RTL/App2';
 
 // import App from './Sandbox/SamePropsRender';
-import App from './Sandbox/Unmounting';
+// import App from './Sandbox/Unmounting';
+import App from './Sandbox/Children';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+// import App from './React.lazy/App';
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);

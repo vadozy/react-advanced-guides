@@ -3,7 +3,7 @@ import React, { Component, useState, useEffect } from 'react';
 function App() {
   const [i, setI] = useState(0);
   useEffect(() => {
-    setTimeout(() => setI(i + 1), 5000);
+    setTimeout(() => setI(i + 1), 1000);
   });
 
   console.log(`App i = ${i}`);
@@ -13,7 +13,7 @@ function App() {
       {i % 3 === 0 ? <div>i % 3 is 0</div> : null}
       <C i={i} k={1} />
       {i % 3 === 0 ? <C i={i} k={2} /> : null}
-      <C i={i} k={3} key={i} />
+      <C i={i} k={3} />
     </>
   );
 
@@ -21,7 +21,7 @@ function App() {
     <>
       <C i={i} k={1} />
       {i % 3 === 0 ? <C i={i} k={2} /> : null}
-      <C i={i} k={3} key={i} />
+      <C i={i} k={3} />
     </>
   );
 

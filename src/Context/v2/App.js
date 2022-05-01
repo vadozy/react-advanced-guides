@@ -26,9 +26,14 @@ export default class App extends React.Component {
     // In this example, we're passing "dark" as the current value.
     console.log('inside App render');
     return (
-      <ThemeContext.Provider value={this.state}>
-        <Toolbar />
-      </ThemeContext.Provider>
+      <React.Fragment>
+        <ThemeContext.Provider value={this.state}>
+          <Toolbar />
+        </ThemeContext.Provider>
+        <div>
+          <ThemedButton buttonNumber='42' />
+        </div>
+      </React.Fragment>
     );
   }
 }
