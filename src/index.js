@@ -29,7 +29,8 @@ import './index.css';
 
 // import App from './Sandbox/SamePropsRender';
 // import App from './Sandbox/Unmounting';
-import App from './Sandbox/Children';
+// import App from './Sandbox/Children';
+import App from './Sandbox/Lifecycle';
 
 // import App from './React.lazy/App';
 
